@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "strict": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "noImplicitAny": false,
+        "module": "CommonJS",
+        "types": ["@citizenfx/client", "@types/node"],
+        "lib": ["ES2017"],
+        "resolveJsonModule": true,
+    },
+    "exclude": ["**/node_modules"]
+}
