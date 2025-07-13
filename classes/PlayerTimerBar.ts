@@ -1,9 +1,9 @@
-const { textJustification, drawTextLabel } = require("timerbars/util");
-const { initialX, textOffset, playerTitleOffset, playerTitleScale, titleWrap } = require("timerbars/coordsAndSizes");
-const TextTimerBar = require("timerbars/classes/TextTimerBar");
+import { textJustification, drawTextLabel } from "../util";
+import { initialX, textOffset, playerTitleOffset, playerTitleScale, titleWrap } from "../coordsAndSizes";
+import TextTimerBar from "./TextTimerBar";
 
-exports = class PlayerTimerBar extends TextTimerBar {
-    constructor(title, text) {
+export default class PlayerTimerBar extends TextTimerBar {
+    constructor(title: string, text: string) {
         super(title, text);
 
         this.titleDrawParams = {
@@ -16,11 +16,10 @@ exports = class PlayerTimerBar extends TextTimerBar {
         };
     }
 
-    // Functions
-    draw(y) {
+    draw(y: number): void {
         super.drawBackground(y);
 
         drawTextLabel(this._titleGxtName, [initialX, y + playerTitleOffset], this.titleDrawParams);
         drawTextLabel(this._textGxtName, [initialX, y + textOffset], this.textDrawParams);
     }
-};
+}
