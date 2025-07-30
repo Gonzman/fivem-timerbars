@@ -26,15 +26,28 @@ setTick(() => {
 });
 
 export const TimerBars = {
+    /**
+     * Adds one or more timer bars to the pool for rendering.
+     * @param args Timer bar instances to add to the pool
+     */
     add(...args: TimerBarBase[]): void {
         const validTimerBars = args.filter((arg): arg is TimerBarBase => arg instanceof TimerBarBase);
         timerBarPool.push(...validTimerBars);
     },
 
+    /**
+     * Checks if a timer bar is currently in the pool.
+     * @param timerBar The timer bar to check for
+     * @returns True if the timer bar is in the pool, false otherwise
+     */
     has(timerBar: TimerBarBase): boolean {
         return timerBarPool.includes(timerBar);
     },
 
+    /**
+     * Removes a timer bar from the pool.
+     * @param timerBar The timer bar to remove
+     */
     remove(timerBar: TimerBarBase): void {
         const idx = timerBarPool.indexOf(timerBar);
         if (idx === -1) {
@@ -44,6 +57,9 @@ export const TimerBars = {
         timerBarPool.splice(idx, 1);
     },
 
+    /**
+     * Removes all timer bars from the pool.
+     */
     clear(): void {
         timerBarPool = [];
     }
